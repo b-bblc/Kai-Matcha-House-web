@@ -1,5 +1,6 @@
 import Button from '../components/UI/Button'
 import HeroVideoBackground from '../components/Home/HeroVideoBackground'
+import logo from '../assets/logo.webp'
 
 const heroGlassButtonClass =
   '!border-2 !border-cream-200/45 !bg-white/12 !text-cream-50 !shadow-lg !shadow-black/20 !backdrop-blur-xl hover:!border-cream-100/55 hover:!bg-white/22 hover:!text-cream-50 active:!bg-white/18'
@@ -16,7 +17,7 @@ export default function Home() {
           {/* Logo */}
           <div className="mb-8 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
             <img
-              src="/assets/width_800.webp"
+              src={logo}
               alt="Kai Matcha House"
               className="w-40 h-40 md:w-52 md:h-52 object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
             />
