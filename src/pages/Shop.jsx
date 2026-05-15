@@ -1,4 +1,5 @@
 import Button from '../components/UI/Button'
+import shopBanner from '../assets/photos/IMG_8568.png'
 
 const products = [
   {
@@ -7,11 +8,12 @@ const products = [
     description: 'Ceremonial grade matcha from Kyoto, Japan. Perfect for traditional preparation or lattes.',
     price: 28,
     weight: '30g',
+    pricePer100g: 93.33,
   },
   {
     id: 2,
     name: 'Matcha Whisk (Chasen)',
-    description: 'Handcrafted bamboo whisk with 80 prongs for the perfect froth. Essential for traditional matcha preparation.',
+    description: 'Handcrafted bamboo whisk, for perfect traditional matcha preparation.',
     price: 18,
     material: 'Bamboo',
   },
@@ -73,9 +75,16 @@ export default function Shop() {
                   </p>
                   
                   <div className="flex items-center justify-between">
-                    <span className="text-3xl font-bold text-matcha-800">
-                      €{product.price}
-                    </span>
+                    <div>
+                      <span className="text-3xl font-bold text-matcha-800">
+                        €{product.price.toFixed(2)}
+                      </span>
+                      {product.pricePer100g && (
+                        <div className="text-sm text-matcha-600 mt-1">
+                          €{product.pricePer100g.toFixed(2)} / 100g
+                        </div>
+                      )}
+                    </div>
                     <Button variant="primary">
                       Add to Cart
                     </Button>
@@ -88,20 +97,24 @@ export default function Shop() {
       </section>
 
       {/* Info Section */}
-      <section className="py-16 bg-matcha-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-matcha-900 mb-4">
+      <section
+        className="relative py-16 bg-matcha-900 bg-cover bg-center"
+        style={{ backgroundImage: `url(${shopBanner})` }}
+      >
+        <div className="absolute inset-0 bg-matcha-900/60" aria-hidden />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-cream-50 mb-4">
             Quality You Can Trust
           </h2>
-          <p className="text-matcha-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Our matcha is carefully selected by tea experts and sourced directly from Kyoto, Japan. 
+          <p className="text-cream-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Our matcha is carefully selected by tea experts and sourced directly from Kyoto, Japan.
             We ensure every batch meets our high standards for color, taste, and texture.
           </p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white rounded-xl p-6 shadow-md">
               <div className="text-matcha-500 font-bold text-lg mb-2">100%</div>
-              <div className="text-matcha-700 text-sm">Organic Matcha</div>
+              <div className="text-matcha-700 text-sm">Sourced directly from matcha farms in Kyoto, Japan</div>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-md">
               <div className="text-matcha-500 font-bold text-lg mb-2">Kyoto</div>
@@ -109,7 +122,7 @@ export default function Shop() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-md">
               <div className="text-matcha-500 font-bold text-lg mb-2">Fresh</div>
-              <div className="text-matcha-700 text-sm">Small Batch Imports</div>
+              <div className="text-matcha-700 text-sm">Selected from Japanese tea experts</div>
             </div>
           </div>
         </div>
