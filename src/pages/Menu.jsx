@@ -1,3 +1,5 @@
+import menuBanner from '../assets/photos/IMG_2928.jpg'
+
 const menuCategories = [
   {
     name: 'Matcha Classics',
@@ -182,17 +184,19 @@ export default function Menu() {
       </section>
 
       {/* Decorative Element */}
-      <section className="py-16 bg-cream-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-matcha-600 to-matcha-700 rounded-2xl p-12 text-center">
-            <h2 className="text-2xl md:text-3xl font-normal text-cream-50 mb-4">
-              All Matcha Prepared Traditionally
-            </h2>
-            <p className="text-matcha-100 max-w-2xl mx-auto">
-              We use Chagama (茶釜) — traditional Japanese cast iron kettles — 
-              to heat water for the most authentic matcha experience.
-            </p>
-          </div>
+      <section
+        className="relative py-16 bg-matcha-900 bg-cover bg-center"
+        style={{ backgroundImage: `url(${menuBanner})` }}
+      >
+        <div className="absolute inset-0 bg-matcha-900/60" aria-hidden />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-normal text-cream-50 mb-4">
+            All Matcha Prepared Traditionally
+          </h2>
+          <p className="text-cream-100 max-w-2xl mx-auto">
+            We use Chagama (茶釜) — traditional Japanese cast iron kettles —
+            to heat water for the most authentic matcha experience.
+          </p>
         </div>
       </section>
     </div>

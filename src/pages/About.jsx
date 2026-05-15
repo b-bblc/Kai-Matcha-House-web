@@ -1,5 +1,6 @@
 import Button from '../components/UI/Button'
 import ourTeamPhoto from '../assets/photos/IMG_1958.jpg'
+import ceremonialMatchaPhoto from '../assets/photos/IMG_3089_cropped.jpg'
 
 export default function About() {
   return (
@@ -73,17 +74,12 @@ export default function About() {
               </div>
             </div>
 
-            {/* Image Placeholder */}
-            <div className="aspect-square bg-gradient-to-br from-matcha-200 to-matcha-300 rounded-2xl flex items-center justify-center shadow-xl shadow-matcha-300/30">
-              <div className="text-center p-8">
-                <div className="w-32 h-32 bg-matcha-400/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-16 h-16 text-matcha-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                  </svg>
-                </div>
-                <p className="text-matcha-700 font-normal">Ceremonial Matcha</p>
-              </div>
-            </div>
+            {/* Ceremonial Matcha photo */}
+            <img
+              src={ceremonialMatchaPhoto}
+              alt="Ceremonial Matcha"
+              className="aspect-[28/19] w-full object-cover rounded-2xl shadow-xl shadow-matcha-300/30"
+            />
           </div>
         </div>
       </section>
