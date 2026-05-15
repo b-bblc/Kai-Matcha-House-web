@@ -11,8 +11,8 @@ export default function Footer() {
               Kai Matcha House
             </h3>
             <p className="text-cream-300 leading-relaxed max-w-md">
-              Traditional Matcha With A Modern Twist. Experience ceremonial grade 
-              matcha from Kyoto, prepared in the most traditional way.
+              Traditional Matcha With A Modern Twist. Experience ceremonial grade
+              matcha from Kyoto, prepared in a traditional way.
             </p>
           </div>
 
@@ -51,11 +51,11 @@ export default function Footer() {
               Contact
             </h4>
             <ul className="space-y-3 text-cream-300">
-              <li>Prenzlauer Berg</li>
-              <li>Berlin, Germany</li>
+              <li>Eberswalder Strasse 2,</li>
+              <li>10435 Berlin, Germany</li>
               <li className="pt-2">
-                <a href="mailto:hello@kaimatchahouse.com" className="hover:text-cream-50 transition-colors">
-                  hello@kaimatchahouse.com
+                <a href="mailto:info@kaimatchahouse.com" className="hover:text-cream-50 transition-colors">
+                  info@kaimatchahouse.com
                 </a>
               </li>
             </ul>
