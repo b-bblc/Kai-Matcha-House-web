@@ -1,30 +1,12 @@
-import { useState } from 'react'
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 import Button from '../components/UI/Button'
 import cafeBanner from '../assets/photos/IMG_8492.png'
 
-// Prenzlauer Berg, Berlin coordinates (near Mauerpark)
-const cafeLocation = {
-  lat: 52.5404,
-  lng: 13.4024,
-}
-
-const mapContainerStyle = {
-  width: '100%',
-  height: '100%',
-}
-
-const mapOptions = {
-  disableDefaultUI: false,
-  zoomControl: true,
-  mapTypeControl: false,
-  streetViewControl: false,
-  fullscreenControl: true,
-}
+const cafeAddress = 'Eberswalder Strasse 2, 10435 Berlin, Germany'
+const mapsQuery = encodeURIComponent(cafeAddress)
+const mapsEmbedUrl = `https://www.google.com/maps?q=${mapsQuery}&output=embed`
+const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}`
 
 export default function Cafe() {
-  const [mapError, setMapError] = useState(false)
-
   return (
     <div className="min-h-screen bg-cream-50">
       {/* Header */}
@@ -45,43 +27,14 @@ export default function Cafe() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Map */}
             <div className="h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl shadow-matcha-200/30">
-              {!mapError ? (
-                <LoadScript 
-                  googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY"
-                  onError={() => setMapError(true)}
-                >
-                  <GoogleMap
-                    mapContainerStyle={mapContainerStyle}
-                    center={cafeLocation}
-                    zoom={15}
-                    options={mapOptions}
-                  >
-                    <Marker position={cafeLocation} />
-                  </GoogleMap>
-                </LoadScript>
-              ) : (
-                // Fallback placeholder when API key is not set
-                <div className="w-full h-full bg-gradient-to-br from-matcha-100 to-matcha-200 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-20 h-20 bg-matcha-300/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-10 h-10 text-matcha-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-bold text-matcha-800 mb-2">Find Us Here</h3>
-                    <p className="text-matcha-600 mb-4">Prenzlauer Berg, Berlin</p>
-                    <a 
-                      href={`https://www.google.com/maps?q=${cafeLocation.lat},${cafeLocation.lng}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-matcha-700 underline hover:text-matcha-900"
-                    >
-                      Open in Google Maps
-                    </a>
-                  </div>
-                </div>
-              )}
+              <iframe
+                title="Kai Matcha House on Google Maps"
+                src={mapsEmbedUrl}
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
 
             {/* Info */}
@@ -103,9 +56,8 @@ export default function Cafe() {
                     <div>
                       <h3 className="font-semibold text-matcha-900 mb-1">Address</h3>
                       <p className="text-matcha-600">
-                        Prenzlauer Berg<br />
-                        Near Mauerpark<br />
-                        Berlin, Germany
+                        Eberswalder Strasse 2<br />
+                        10435 Berlin, Germany
                       </p>
                     </div>
                   </div>
@@ -147,8 +99,8 @@ export default function Cafe() {
                   </div>
                 </div>
 
-                <Button 
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${cafeLocation.lat},${cafeLocation.lng}`}
+                <Button
+                  href={mapsDirectionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full"
