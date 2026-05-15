@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 import Button from '../components/UI/Button'
+import cafeBanner from '../assets/photos/IMG_8492.png'
 
 // Prenzlauer Berg, Berlin coordinates (near Mauerpark)
 const cafeLocation = {
@@ -161,12 +162,16 @@ export default function Cafe() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-matcha-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-matcha-900 mb-4">
+      <section
+        className="relative py-16 bg-matcha-900 bg-cover bg-center"
+        style={{ backgroundImage: `url(${cafeBanner})` }}
+      >
+        <div className="absolute inset-0 bg-matcha-900/60" aria-hidden />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-cream-50 mb-4">
             Can't Visit? Shop Online
           </h2>
-          <p className="text-matcha-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-cream-100 mb-8 max-w-2xl mx-auto">
             Bring the Kai Matcha House experience to your home with our premium matcha powder and traditional tools.
           </p>
           <Button to="/shop">
