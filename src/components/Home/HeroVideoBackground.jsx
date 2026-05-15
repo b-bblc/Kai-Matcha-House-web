@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import heroVideo from '../../assets/videos/A027_06101456_C093_2.mp4'
+import heroVideo from '../../assets/videos/hero.mp4'
 
 /** Optional: progressive JPEG первого кадра → public/videos/hero-poster.jpg (см. README) */
 const POSTER_PUBLIC_PATH = '/videos/hero-poster.jpg'
