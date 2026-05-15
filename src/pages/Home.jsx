@@ -13,13 +13,13 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center drop-shadow-sm">
-          {/* Matcha Bowl Illustration */}
+          {/* Logo */}
           <div className="mb-8 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            <div className="w-32 h-32 md:w-40 md:h-40 bg-matcha-500/90 ring-2 ring-cream-200/40 rounded-full flex items-center justify-center shadow-2xl shadow-black/30 hover:scale-105 transition-transform duration-500">
-              <div className="w-24 h-24 md:w-32 md:h-32 bg-matcha-400/95 rounded-full flex items-center justify-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-matcha-300/90 rounded-full opacity-80" />
-              </div>
-            </div>
+            <img
+              src="/assets/width_800.webp"
+              alt="Kai Matcha House"
+              className="w-40 h-40 md:w-52 md:h-52 object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+            />
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal text-cream-50 mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
