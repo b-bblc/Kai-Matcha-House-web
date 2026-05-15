@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Self Modern Font */
+@font-face {
+  font-family: 'Self Modern';
+  src: url('./assets/fonts/self-modern_regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Self Modern';
+  src: url('./assets/fonts/self-modern_italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Self Modern';
+  src: url('./assets/fonts/self-modern_semi-bold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Self Modern';
+  src: url('./assets/fonts/self-modern_bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-self-modern font-normal antialiased;
+}
+
+/* Self Modern Regular everywhere (no synthetic bold) */
+h1, h2, h3, h4, h5, h6, strong, b {
+  font-weight: 400;
+}
+
+/*
+ * Overlay scrollbar (Finder-like)
+ * Полоса почти невидима, пока нет класса .scrollbar-active на <html>
+ * (ставится из useOverlayScrollbar при скролле / wheel / touch).
+ * Непрозрачные дорожка (cream) и ползунок (matcha); отступ ползунка — border + background-clip
+ */
+html {
+  /* Firefox: тонкая полоса, цвет «выкл» пока не активно */
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+html.scrollbar-active {
+  /* Firefox: непрозрачные цвета (thumb, track) */
+  scrollbar-color: #2a512a #fdf9f3;
+}
+
+html::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+html::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+  transition: background-color 0.35s ease;
+}
+
+/* Дорожка: сплошной cream (непрозрачно) */
+html.scrollbar-active::-webkit-scrollbar-track:vertical {
+  margin: 5px 0;
+  background-color: #fdf9f3;
+  border-radius: 999px;
+}
+
+html.scrollbar-active::-webkit-scrollbar-track:horizontal {
+  margin: 0 5px;
+  background-color: #fdf9f3;
+  border-radius: 999px;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  /* «Воздух» между ползунком и краем дорожки */
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  background-color: transparent;
+  transition: background-color 0.35s ease;
+}
+
+/* Ползунок: полностью непрозрачный matcha */
+html.scrollbar-active::-webkit-scrollbar-thumb {
+  background-color: #2a512a;
+}
+
+html.scrollbar-active::-webkit-scrollbar-thumb:hover {
+  background-color: #234323;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.4s ease-out forwards;
+}
+
+/* Staggered animations */
+.animate-stagger > * {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-stagger > *:nth-child(1) { animation-delay: 0.1s; }
+.animate-stagger > *:nth-child(2) { animation-delay: 0.2s; }
+.animate-stagger > *:nth-child(3) { animation-delay: 0.3s; }
+.animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
+.animate-stagger > *:nth-child(5) { animation-delay: 0.5s; }
+.animate-stagger > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(74, 138, 74, 0.2);
+}
