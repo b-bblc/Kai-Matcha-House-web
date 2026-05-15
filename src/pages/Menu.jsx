@@ -37,6 +37,67 @@ const menuCategories = [
   },
 ]
 
+async function downloadMenuPdf() {
+  const { jsPDF } = await import('jspdf')
+  const doc = new jsPDF({ unit: 'pt', format: 'a4' })
+  const pageWidth = doc.internal.pageSize.getWidth()
+  const pageHeight = doc.internal.pageSize.getHeight()
+  const marginX = 56
+  const bottomLimit = pageHeight - 56
+  let y = 72
+
+  doc.setFont('helvetica', 'bold')
+  doc.setFontSize(24)
+  doc.text('Kai Matcha House', pageWidth / 2, y, { align: 'center' })
+  y += 24
+  doc.setFont('helvetica', 'normal')
+  doc.setFontSize(12)
+  doc.setTextColor(110)
+  doc.text('Menu', pageWidth / 2, y, { align: 'center' })
+  doc.setTextColor(0)
+  y += 32
+
+  menuCategories.forEach((category) => {
+    if (y > bottomLimit - 60) {
+      doc.addPage()
+      y = 72
+    }
+
+    doc.setFont('helvetica', 'bold')
+    doc.setFontSize(14)
+    doc.text(category.name.toUpperCase(), marginX, y)
+    y += 6
+    doc.setDrawColor(180)
+    doc.line(marginX, y, pageWidth - marginX, y)
+    y += 18
+
+    category.items.forEach((item) => {
+      if (y > bottomLimit) {
+        doc.addPage()
+        y = 72
+      }
+
+      const priceText = `€${item.price.toFixed(2)}`
+      doc.setFont('helvetica', 'bold')
+      doc.setFontSize(11)
+      doc.text(item.name, marginX, y)
+      doc.text(priceText, pageWidth - marginX, y, { align: 'right' })
+
+      doc.setFont('helvetica', 'normal')
+      doc.setFontSize(10)
+      doc.setTextColor(110)
+      const descLines = doc.splitTextToSize(item.description, pageWidth - marginX * 2 - 60)
+      doc.text(descLines, marginX, y + 14)
+      doc.setTextColor(0)
+      y += 14 + descLines.length * 12 + 8
+    })
+
+    y += 12
+  })
+
+  doc.save('kai-matcha-house-menu.pdf')
+}
+
 export default function Menu() {
   return (
     <div className="min-h-screen bg-cream-50">
@@ -49,6 +110,16 @@ export default function Menu() {
           <p className="text-lg text-matcha-600 max-w-2xl mx-auto">
             Explore our selection of traditional and modern matcha creations
           </p>
+          <button
+            type="button"
+            onClick={downloadMenuPdf}
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-matcha-700 px-6 py-3 text-cream-50 font-normal shadow-md shadow-matcha-200/40 hover:bg-matcha-800 transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" />
+            </svg>
+            Download menu (PDF)
+          </button>
         </div>
       </section>
 
