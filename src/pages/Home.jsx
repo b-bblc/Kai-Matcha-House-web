@@ -1,6 +1,7 @@
 import Button from '../components/UI/Button'
 import HeroVideoBackground from '../components/Home/HeroVideoBackground'
 import logo from '../assets/logo.webp'
+import ctaBackground from '../assets/photos/IMG_3060.jpg'
 
 const heroGlassButtonClass =
   '!border-2 !border-cream-200/45 !bg-white/12 !text-cream-50 !shadow-lg !shadow-black/20 !backdrop-blur-xl hover:!border-cream-100/55 hover:!bg-white/22 hover:!text-cream-50 active:!bg-white/18'
@@ -107,13 +108,17 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-matcha-700">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section
+        className="relative py-24 bg-matcha-700 bg-cover bg-center"
+        style={{ backgroundImage: `url(${ctaBackground})` }}
+      >
+        <div className="absolute inset-0 bg-matcha-900/60" aria-hidden />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-normal text-cream-50 mb-6">
             Visit Us in Prenzlauer Berg
           </h2>
           <p className="text-matcha-100 text-lg mb-8 max-w-2xl mx-auto">
-            Experience the perfect matcha in our cozy cafe, just right next to Mauerpark. 
+            Experience the perfect matcha in our cozy cafe, just right next to Mauerpark.
             We can't wait to welcome you.
           </p>
           <Button to="/cafe" variant="secondary" size="lg" className="!font-normal">
