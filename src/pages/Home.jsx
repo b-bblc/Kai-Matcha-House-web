@@ -1,52 +1,50 @@
 import Button from '../components/UI/Button'
+import HeroVideoBackground from '../components/Home/HeroVideoBackground'
+
+const heroGlassButtonClass =
+  '!border-2 !border-cream-200/45 !bg-white/12 !text-cream-50 !shadow-lg !shadow-black/20 !backdrop-blur-xl hover:!border-cream-100/55 hover:!bg-white/22 hover:!text-cream-50 active:!bg-white/18'
 
 export default function Home() {
   return (
     <div className="font-self-modern font-normal">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-gradient-to-br from-matcha-50 via-cream-50 to-matcha-100">
-          {/* Decorative circles */}
-          <div className="absolute top-20 left-10 w-64 h-64 bg-matcha-200/30 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-matcha-300/20 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-matcha-100/40 rounded-full blur-3xl" />
-        </div>
+      <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+        <HeroVideoBackground />
 
         {/* Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center drop-shadow-sm">
           {/* Matcha Bowl Illustration */}
           <div className="mb-8 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            <div className="w-32 h-32 md:w-40 md:h-40 bg-matcha-500 rounded-full flex items-center justify-center shadow-2xl shadow-matcha-500/30 hover:scale-105 transition-transform duration-500">
-              <div className="w-24 h-24 md:w-32 md:h-32 bg-matcha-400 rounded-full flex items-center justify-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-matcha-300 rounded-full opacity-60" />
+            <div className="w-32 h-32 md:w-40 md:h-40 bg-matcha-500/90 ring-2 ring-cream-200/40 rounded-full flex items-center justify-center shadow-2xl shadow-black/30 hover:scale-105 transition-transform duration-500">
+              <div className="w-24 h-24 md:w-32 md:h-32 bg-matcha-400/95 rounded-full flex items-center justify-center">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-matcha-300/90 rounded-full opacity-80" />
               </div>
             </div>
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal text-matcha-900 mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal text-cream-50 mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             Traditional Matcha
             <br />
-            <span className="text-matcha-600">With A Modern Twist</span>
+            <span className="text-matcha-200">With A Modern Twist</span>
           </h1>
-          
-          <p className="text-xl md:text-2xl text-matcha-700 mb-10 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+
+          <p className="text-xl md:text-2xl text-cream-100/95 mb-10 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             Matcha Cafe Based in Berlin
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <Button to="/menu" size="lg" className="!font-normal">
+            <Button to="/menu" variant="outline" size="lg" className={`!font-normal ${heroGlassButtonClass}`}>
               Discover Our Menu
             </Button>
-            <Button to="/shop" variant="outline" size="lg" className="!font-normal">
+            <Button to="/shop" variant="outline" size="lg" className={`!font-normal ${heroGlassButtonClass}`}>
               Shop Matcha
             </Button>
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-matcha-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 animate-bounce">
+          <svg className="w-6 h-6 text-cream-200/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
