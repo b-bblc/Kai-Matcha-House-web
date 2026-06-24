@@ -92,8 +92,8 @@ export default function Cafe() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-matcha-900 mb-1">Contact</h3>
-                      <a href="mailto:hello@kaimatchahouse.com" className="text-matcha-600 hover:text-matcha-800 transition-colors">
-                        hello@kaimatchahouse.com
+                      <a href="mailto:info@kaimatchahouse.com" className="text-matcha-600 hover:text-matcha-800 transition-colors">
+                        info@kaimatchahouse.com
                       </a>
                     </div>
                   </div>

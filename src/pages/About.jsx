@@ -1,5 +1,5 @@
 import Button from '../components/UI/Button'
-import ourTeamPhoto from '../assets/photos/IMG_1958.jpg'
+import ourTeamPhoto from '../assets/photos/808.png'
 import ceremonialMatchaPhoto from '../assets/photos/IMG_3089_cropped.jpg'
 
 export default function About() {

@@ -206,8 +206,8 @@ export default function Contact() {
                 </svg>
               </div>
               <h3 className="font-normal text-matcha-900 mb-2">Email Us</h3>
-              <a href="mailto:hello@kaimatchahouse.com" className="text-matcha-600 hover:text-matcha-800 transition-colors">
-                hello@kaimatchahouse.com
+              <a href="mailto:info@kaimatchahouse.com" className="text-matcha-600 hover:text-matcha-800 transition-colors">
+                info@kaimatchahouse.com
               </a>
             </div>
 
@@ -221,7 +221,8 @@ export default function Contact() {
               </div>
               <h3 className="font-normal text-matcha-900 mb-2">Visit Us</h3>
               <p className="text-matcha-600">
-                Prenzlauer Berg, Berlin
+                Eberswalder Strasse 2,<br />
+                10435 Berlin, Germany
               </p>
             </div>
           </div>
